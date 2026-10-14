@@ -1,0 +1,55 @@
+name: PR meta
+
+# Shared by every repository of the organization through a short pr-meta.yml caller:
+# the pull request goes to the owner and gets a label from its conventional-commits title.
+on:
+  workflow_call:
+    inputs:
+      assignee:
+        type: string
+        default: aimuzov
+
+permissions:
+  pull-requests: write
+  issues: write
+
+jobs:
+  meta:
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    env:
+      GH_TOKEN: ${{ github.token }}
+      GH_REPO: ${{ github.repository }}
+      PR: ${{ github.event.pull_request.number }}
+      TITLE: ${{ github.event.pull_request.title }}
+      ASSIGNEE: ${{ inputs.assignee }}
+    steps:
+      - name: Assign
+        run: gh pr edit "$PR" --add-assignee "$ASSIGNEE"
+
+      - name: Label
+        run: |
+          # type, label, color, description; feat, fix and docs keep GitHub's default labels
+          labels='feat enhancement a2eeef New feature or request
+          fix bug d73a4a Something is not working
+          docs documentation 0075ca Improvements or additions to documentation
+          ci ci 6e7781 Workflows and automation
+          build build 6e7781 Build system and packaging
+          chore chore c5def5 Maintenance
+          refactor refactor fbca04 Code change without a behaviour change
+          perf performance f9d0c4 Faster or lighter
+          test test bfd4f2 Tests only
+          style style ededed Formatting only
+          revert revert b60205 Reverts an earlier change'
+
+          type=$(sed -nE 's/^([a-z]+)(\([^)]*\))?!?:.*/\1/p' <<< "$TITLE")
+          label=$(awk -v t="$type" '$1 == t { print $2 }' <<< "$labels")
+          [ -n "$label" ] || { echo "no conventional type in: $TITLE"; exit 0; }
+
+          read -r _ _ color description < <(awk -v t="$type" '$1 == t' <<< "$labels")
+          gh label create "$label" --color "$color" --description "$description" 2>/dev/null || true
+
+          # an edited title may change the type, so the labels of other types go away
+          stale=$(gh pr view "$PR" --json labels --jq '.labels[].name' |
+            grep -Fxf <(awk '{ print $2 }' <<< "$labels") | grep -Fxv "$label" | paste -sd, - || true)
+          gh pr edit "$PR" --add-label "$label" ${stale:+--remove-label "$stale"}

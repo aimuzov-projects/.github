@@ -8,7 +8,7 @@
 </p>
 
 <p align="center"><b>Small web products by <a href="https://github.com/aimuzov">Aleksey Imuzov</a></b></p>
-<p align="center">Static Astro sites with Svelte islands and a tiny Node API, each in its own Docker Compose behind a shared Caddy</p>
+<p align="center">Static Astro sites with Svelte islands, a tiny Node API or a Telegram bot, each in its own Docker Compose behind a shared Caddy</p>
 
 <p align="center">
 	<a href="https://astro.build"><img src="https://img.shields.io/badge/Astro-bc52ee?logo=astro&logoColor=white" alt="Astro"></a>
@@ -62,6 +62,19 @@
 			</p>
 		</td>
 	</tr>
+	<tr>
+		<td width="50%" valign="top">
+			<a href="https://github.com/aimuzov-projects/sublya"><img src="https://raw.githubusercontent.com/aimuzov-projects/sublya/main/.github/assets/banner.en.jpg" alt="Sublya"></a>
+			<h3><a href="https://github.com/aimuzov-projects/sublya">Sublya</a></h3>
+			<p>Telegram bot that burns TikTok-style subtitles into a video, the spoken word lit up, plus its landing page</p>
+			<p>
+				<a href="https://sublya.aimuzov.online"><img src="https://img.shields.io/website?url=https%3A%2F%2Fsublya.aimuzov.online&label=site&up_message=sublya.aimuzov.online&up_color=2ea44f" alt="sublya.aimuzov.online"></a>
+				<a href="https://t.me/sublyarobot"><img src="https://img.shields.io/badge/Telegram-@sublyarobot-26a5e4?logo=telegram&logoColor=white" alt="@sublyarobot"></a>
+				<a href="https://github.com/aimuzov-projects/sublya/actions/workflows/deploy.yml"><img src="https://img.shields.io/github/actions/workflow/status/aimuzov-projects/sublya/deploy.yml?branch=main&label=deploy" alt="Deploy"></a>
+			</p>
+		</td>
+		<td width="50%" valign="top"></td>
+	</tr>
 </table>
 
 ## Infrastructure
@@ -69,16 +82,29 @@
 <table>
 	<tr>
 		<td width="50%" valign="top">
-			<h3><a href="https://github.com/aimuzov-projects/infra-template-site">infra-template-site</a></h3>
-			<p>The template every new site starts from: Prettier, oxlint, stylelint, <code>node --test</code>, check and deploy workflows, Docker and nginx in <code>deploy/</code>, room for an API in <code>src/backend</code>.</p>
-			<p><a href="https://github.com/aimuzov-projects/infra-template-site/generate"><img src="https://img.shields.io/badge/template-use%20this-2ea44f?logo=github" alt="Use this template"></a></p>
+			<a href="https://github.com/aimuzov-projects/infra-site-kit"><img src="https://raw.githubusercontent.com/aimuzov-projects/infra-site-kit/main/.github/assets/banner.en.jpg" alt="infra-site-kit"></a>
+			<h3><a href="https://github.com/aimuzov-projects/infra-site-kit">infra-site-kit</a></h3>
+			<p>What every site shares: the <code>check</code>, <code>release</code> and <code>deploy</code> actions, Prettier, Stylelint, oxlint and Playwright configs, the author credit, the theme peek and Yandex Metrika.</p>
+			<p>
+				<a href="https://github.com/aimuzov-projects/infra-site-kit/actions/workflows/check.yml"><img src="https://img.shields.io/github/actions/workflow/status/aimuzov-projects/infra-site-kit/check.yml?branch=main&label=check" alt="Check"></a>
+				<a href="https://github.com/aimuzov-projects/infra-site-kit/tags"><img src="https://img.shields.io/github/v/tag/aimuzov-projects/infra-site-kit?sort=semver&label=version" alt="Version"></a>
+			</p>
 		</td>
 		<td width="50%" valign="top">
-			<h3>infra-server</h3>
-			<p>Shared Caddy for the projects server: owns 80/443, issues certificates and routes each domain to its project’s containers. Private.</p>
-			<p><img src="https://img.shields.io/badge/repo-private-555?logo=caddy&logoColor=white" alt="Private"></p>
+			<a href="https://github.com/aimuzov-projects/infra-server"><img src="https://raw.githubusercontent.com/aimuzov-projects/infra-server/main/.github/assets/banner.en.jpg" alt="infra-server"></a>
+			<h3><a href="https://github.com/aimuzov-projects/infra-server">infra-server</a></h3>
+			<p>Shared Caddy for the projects server: owns 80/443, issues certificates and routes each domain to its project’s containers. Plus an Xray egress for the APIs unreachable from Russia.</p>
+			<p><a href="https://github.com/aimuzov-projects/infra-server/actions/workflows/deploy.yml"><img src="https://img.shields.io/github/actions/workflow/status/aimuzov-projects/infra-server/deploy.yml?branch=main&label=deploy" alt="Deploy"></a></p>
 		</td>
+	</tr>
+	<tr>
+		<td width="50%" valign="top">
+			<h3><a href="https://github.com/aimuzov-projects/infra-site-template">infra-site-template</a></h3>
+			<p>The template every new site starts from: Astro with Svelte, unit tests on <code>node --test</code> and Playwright e2e, check and deploy workflows on top of infra-site-kit, Docker and nginx in <code>deploy/</code>, room for an API in <code>src/backend</code>.</p>
+			<p><a href="https://github.com/aimuzov-projects/infra-site-template/generate"><img src="https://img.shields.io/badge/template-use%20this-2ea44f?logo=github" alt="Use this template"></a></p>
+		</td>
+		<td width="50%" valign="top"></td>
 	</tr>
 </table>
 
-<p align="center"><sub>A push to <code>main</code> → GitHub Actions → SSH → <code>docker compose up</code> on the server → Caddy serves it over HTTPS.</sub></p>
+<p align="center"><sub>A push to <code>main</code> → GitHub Actions with the infra-site-kit deploy → SSH → <code>docker compose up</code> on the server → Caddy serves it over HTTPS.</sub></p>

@@ -77,6 +77,33 @@
 	</tr>
 </table>
 
+## lazyvimx
+
+<p>Дистрибутив Neovim в своей организации <a href="https://github.com/lazyvimx">lazyvimx</a>. Сайт документации живёт на том же сервере и стеке, что и проекты выше.</p>
+
+<table>
+	<tr>
+		<td width="50%" valign="top">
+			<a href="https://github.com/lazyvimx/nvim"><img src="https://raw.githubusercontent.com/lazyvimx/nvim/main/.github/assets/banner.jpg" alt="lazyvimx"></a>
+			<h3><a href="https://github.com/lazyvimx/nvim">lazyvimx</a></h3>
+			<p>Слой улучшений поверх LazyVim: опциональные экстры и оверрайды плагинов, русская раскладка в комплекте</p>
+			<p>
+				<a href="https://github.com/lazyvimx/nvim/releases"><img src="https://img.shields.io/github/v/release/lazyvimx/nvim?label=version" alt="Version"></a>
+				<a href="https://github.com/lazyvimx/nvim/actions/workflows/release.yml"><img src="https://img.shields.io/github/actions/workflow/status/lazyvimx/nvim/release.yml?branch=main&label=release" alt="Release"></a>
+			</p>
+		</td>
+		<td width="50%" valign="top">
+			<a href="https://github.com/lazyvimx/site"><img src="https://raw.githubusercontent.com/lazyvimx/site/main/.github/assets/banner.jpg" alt="Документация lazyvimx"></a>
+			<h3><a href="https://github.com/lazyvimx/site">Документация lazyvimx</a></h3>
+			<p>Сайт документации на русском и английском в обличье Neovim: статуслайн, vim-клавиши, туториал и поиск</p>
+			<p>
+				<a href="https://lazyvimx.aimuzov.online/ru/"><img src="https://img.shields.io/website?url=https%3A%2F%2Flazyvimx.aimuzov.online&label=%D1%81%D0%B0%D0%B9%D1%82&up_message=lazyvimx.aimuzov.online&up_color=2ea44f" alt="lazyvimx.aimuzov.online"></a>
+				<a href="https://github.com/lazyvimx/site/actions/workflows/deploy.yml"><img src="https://img.shields.io/github/actions/workflow/status/lazyvimx/site/deploy.yml?branch=main&label=deploy" alt="Deploy"></a>
+			</p>
+		</td>
+	</tr>
+</table>
+
 ## Инфраструктура
 
 <table>

@@ -8,7 +8,7 @@
 </p>
 
 <p align="center"><b>Небольшие веб-продукты <a href="https://github.com/aimuzov">Алексея Имузова</a></b></p>
-<p align="center">Статичные сайты на Astro с островами на Svelte и маленьким Node-API, каждый в своём Docker Compose за общим Caddy</p>
+<p align="center">Статичные сайты на Astro с островами на Svelte, маленьким Node-API или Telegram-ботом, каждый в своём Docker Compose за общим Caddy</p>
 
 <p align="center">
 	<a href="https://astro.build"><img src="https://img.shields.io/badge/Astro-bc52ee?logo=astro&logoColor=white" alt="Astro"></a>
@@ -62,6 +62,19 @@
 			</p>
 		</td>
 	</tr>
+	<tr>
+		<td width="50%" valign="top">
+			<a href="https://github.com/aimuzov-projects/sublya"><img src="https://raw.githubusercontent.com/aimuzov-projects/sublya/main/.github/assets/banner.jpg" alt="Сабля"></a>
+			<h3><a href="https://github.com/aimuzov-projects/sublya">Сабля</a></h3>
+			<p>Telegram-бот, который вшивает в видео субтитры в стиле TikTok с подсветкой произносимого слова, и его лендинг</p>
+			<p>
+				<a href="https://sublya.aimuzov.online"><img src="https://img.shields.io/website?url=https%3A%2F%2Fsublya.aimuzov.online&label=%D1%81%D0%B0%D0%B9%D1%82&up_message=sublya.aimuzov.online&up_color=2ea44f" alt="sublya.aimuzov.online"></a>
+				<a href="https://t.me/sublyarobot"><img src="https://img.shields.io/badge/Telegram-@sublyarobot-26a5e4?logo=telegram&logoColor=white" alt="@sublyarobot"></a>
+				<a href="https://github.com/aimuzov-projects/sublya/actions/workflows/deploy.yml"><img src="https://img.shields.io/github/actions/workflow/status/aimuzov-projects/sublya/deploy.yml?branch=main&label=deploy" alt="Deploy"></a>
+			</p>
+		</td>
+		<td width="50%" valign="top"></td>
+	</tr>
 </table>
 
 ## Инфраструктура
@@ -69,16 +82,29 @@
 <table>
 	<tr>
 		<td width="50%" valign="top">
-			<h3><a href="https://github.com/aimuzov-projects/infra-template-site">infra-template-site</a></h3>
-			<p>Шаблон, с которого начинается каждый новый сайт: Prettier, oxlint, stylelint, <code>node --test</code>, воркфлоу проверок и деплоя, Docker и nginx в <code>deploy/</code>, место под API в <code>src/backend</code>.</p>
-			<p><a href="https://github.com/aimuzov-projects/infra-template-site/generate"><img src="https://img.shields.io/badge/template-use%20this-2ea44f?logo=github" alt="Use this template"></a></p>
+			<a href="https://github.com/aimuzov-projects/infra-site-kit"><img src="https://raw.githubusercontent.com/aimuzov-projects/infra-site-kit/main/.github/assets/banner.jpg" alt="infra-site-kit"></a>
+			<h3><a href="https://github.com/aimuzov-projects/infra-site-kit">infra-site-kit</a></h3>
+			<p>Всё общее для сайтов: экшены <code>check</code>, <code>release</code> и <code>deploy</code>, конфиги Prettier, Stylelint, oxlint и Playwright, подпись автора, подсмотр темы и Яндекс Метрика.</p>
+			<p>
+				<a href="https://github.com/aimuzov-projects/infra-site-kit/actions/workflows/check.yml"><img src="https://img.shields.io/github/actions/workflow/status/aimuzov-projects/infra-site-kit/check.yml?branch=main&label=check" alt="Check"></a>
+				<a href="https://github.com/aimuzov-projects/infra-site-kit/tags"><img src="https://img.shields.io/github/v/tag/aimuzov-projects/infra-site-kit?sort=semver&label=version" alt="Version"></a>
+			</p>
 		</td>
 		<td width="50%" valign="top">
-			<h3>infra-server</h3>
-			<p>Общий Caddy сервера с проектами: держит 80/443, выпускает сертификаты и направляет каждый домен в контейнеры своего проекта. Приватный.</p>
-			<p><img src="https://img.shields.io/badge/repo-private-555?logo=caddy&logoColor=white" alt="Private"></p>
+			<a href="https://github.com/aimuzov-projects/infra-server"><img src="https://raw.githubusercontent.com/aimuzov-projects/infra-server/main/.github/assets/banner.jpg" alt="infra-server"></a>
+			<h3><a href="https://github.com/aimuzov-projects/infra-server">infra-server</a></h3>
+			<p>Общий Caddy сервера с проектами: держит 80/443, выпускает сертификаты и направляет каждый домен в контейнеры своего проекта. Плюс выход через Xray для API, недоступных из России.</p>
+			<p><a href="https://github.com/aimuzov-projects/infra-server/actions/workflows/deploy.yml"><img src="https://img.shields.io/github/actions/workflow/status/aimuzov-projects/infra-server/deploy.yml?branch=main&label=deploy" alt="Deploy"></a></p>
 		</td>
+	</tr>
+	<tr>
+		<td width="50%" valign="top">
+			<h3><a href="https://github.com/aimuzov-projects/infra-site-template">infra-site-template</a></h3>
+			<p>Шаблон, с которого начинается каждый новый сайт: Astro со Svelte, юнит-тесты на <code>node --test</code> и e2e на Playwright, воркфлоу проверок и деплоя поверх infra-site-kit, Docker и nginx в <code>deploy/</code>, место под API в <code>src/backend</code>.</p>
+			<p><a href="https://github.com/aimuzov-projects/infra-site-template/generate"><img src="https://img.shields.io/badge/template-use%20this-2ea44f?logo=github" alt="Use this template"></a></p>
+		</td>
+		<td width="50%" valign="top"></td>
 	</tr>
 </table>
 
-<p align="center"><sub>Пуш в <code>main</code> → GitHub Actions → SSH → <code>docker compose up</code> на сервере → Caddy отдаёт по HTTPS.</sub></p>
+<p align="center"><sub>Пуш в <code>main</code> → GitHub Actions с деплоем из infra-site-kit → SSH → <code>docker compose up</code> на сервере → Caddy отдаёт по HTTPS.</sub></p>
